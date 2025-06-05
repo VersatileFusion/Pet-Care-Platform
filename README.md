@@ -45,14 +45,44 @@ pet-care-platform/
 
 ### Tech Stack
 
-- **Backend**: Node.js, Express.js, TypeScript
-- **Database**: PostgreSQL
-- **ORM**: TypeORM
-- **File Storage**: AWS S3
-- **Authentication**: JWT
-- **Validation**: Class Validator, Zod
-- **Testing**: Jest
-- **Swagger**: Swagger for API documentation
+- **Backend Services**:
+  - **Express.js Services**:
+    - Node.js & Express.js
+    - TypeScript
+    - TypeORM for database operations
+    - JWT for authentication
+    - Class Validator & Zod for validation
+    - Jest for testing
+    - Swagger for API documentation
+  - **ASP.NET Core Services**:
+    - .NET 7
+    - Entity Framework Core with PostgreSQL provider
+    - AutoMapper for object mapping
+    - FluentValidation for request validation
+    - MediatR for CQRS pattern
+    - Serilog for structured logging
+    - xUnit and Moq for testing
+    - Swagger/OpenAPI for API documentation
+    - Identity Server for authentication
+    - SignalR for real-time features
+    - Background Services for scheduled tasks
+    - Health Checks for monitoring
+    - Polly for resilience and transient fault handling
+
+- **Database**: 
+  - PostgreSQL
+  - Redis for caching
+  - Entity Framework Core migrations
+  - Dapper for high-performance queries
+
+- **Infrastructure**:
+  - AWS S3 for file storage
+  - Docker for containerization
+  - GitHub Actions for CI/CD
+  - Nginx as reverse proxy
+  - Azure DevOps for deployment
+  - Application Insights for monitoring
+  - Azure Key Vault for secrets management
 
 ### API Documentation
 The API documentation is available at `/api-docs` when running the server. It includes:
@@ -198,14 +228,44 @@ pet-care-platform/
 
 ### تکنولوژی‌های استفاده شده
 
-- **بک‌اند**: Node.js, Express.js, TypeScript
-- **پایگاه داده**: PostgreSQL
-- **ORM**: TypeORM
-- **ذخیره‌سازی فایل**: AWS S3
-- **احراز هویت**: JWT
-- **اعتبارسنجی**: Class Validator, Zod
-- **تست**: Jest
-- **Swagger**: Swagger for API documentation
+- **Backend Services**:
+  - **Express.js Services**:
+    - Node.js & Express.js
+    - TypeScript
+    - TypeORM for database operations
+    - JWT for authentication
+    - Class Validator & Zod for validation
+    - Jest for testing
+    - Swagger for API documentation
+  - **ASP.NET Core Services**:
+    - .NET 7
+    - Entity Framework Core with PostgreSQL provider
+    - AutoMapper for object mapping
+    - FluentValidation for request validation
+    - MediatR for CQRS pattern
+    - Serilog for structured logging
+    - xUnit and Moq for testing
+    - Swagger/OpenAPI for API documentation
+    - Identity Server for authentication
+    - SignalR for real-time features
+    - Background Services for scheduled tasks
+    - Health Checks for monitoring
+    - Polly for resilience and transient fault handling
+
+- **Database**: 
+  - PostgreSQL
+  - Redis for caching
+  - Entity Framework Core migrations
+  - Dapper for high-performance queries
+
+- **Infrastructure**:
+  - AWS S3 for file storage
+  - Docker for containerization
+  - GitHub Actions for CI/CD
+  - Nginx as reverse proxy
+  - Azure DevOps for deployment
+  - Application Insights for monitoring
+  - Azure Key Vault for secrets management
 
 ### مستندات API
 مستندات API در مسیر `/api-docs` در زمان اجرای سرور در دسترس است. این شامل:
@@ -219,75 +279,75 @@ pet-care-platform/
 
 #### پیش‌نیازها
 
-- Node.js (نسخه ۱۴ یا بالاتر)
-- PostgreSQL (نسخه ۱۲ یا بالاتر)
-- Redis (نسخه ۶ یا بالاتر)
-- حساب AWS (برای ذخیره‌سازی S3)
-- Docker (اختیاری)
+- Node.js (v14 or higher)
+- PostgreSQL (v12 or higher)
+- Redis (v6 or higher)
+- AWS Account (for S3 storage)
+- Docker (optional)
 
 #### نصب
 
-۱. کلون کردن مخزن:
+1. کلون کردن مخزن:
 
-```bash
-git clone https://github.com/VersatileFusion/Pet-Care-Platform.git
-cd Pet-Care-Platform
-```
+   ```bash
+   git clone https://github.com/VersatileFusion/Pet-Care-Platform.git
+   cd Pet-Care-Platform
+   ```
 
-۲. نصب وابستگی‌ها:
+2. نصب وابستگی‌ها:
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-۳. تنظیم متغیرهای محیطی:
+3. تنظیم متغیرهای محیطی:
 
-```bash
-cp .env.example .env
-```
+   ```bash
+   cp .env.example .env
+   ```
 
-فایل `.env` را با تنظیمات خود به‌روزرسانی کنید:
+   Update the `.env` file with your configuration:
 
-```env
-# پایگاه داده
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=postgres
-DB_PASSWORD=your_password
-DB_NAME=petcare_booking
+   ```env
+   # Database
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USERNAME=postgres
+   DB_PASSWORD=your_password
+   DB_NAME=petcare_booking
 
-# JWT
-JWT_SECRET=your_jwt_secret
-JWT_EXPIRES_IN=24h
+   # JWT
+   JWT_SECRET=your_jwt_secret
+   JWT_EXPIRES_IN=24h
 
-# AWS
-AWS_ACCESS_KEY_ID=your_access_key
-AWS_SECRET_ACCESS_KEY=your_secret_key
-AWS_REGION=your_region
-AWS_S3_BUCKET=your_bucket_name
+   # AWS
+   AWS_ACCESS_KEY_ID=your_access_key
+   AWS_SECRET_ACCESS_KEY=your_secret_key
+   AWS_REGION=your_region
+   AWS_S3_BUCKET=your_bucket_name
 
-# Redis
-REDIS_HOST=localhost
-REDIS_PORT=6379
-```
+   # Redis
+   REDIS_HOST=localhost
+   REDIS_PORT=6379
+   ```
 
-۴. ایجاد پایگاه داده:
+4. ایجاد پایگاه داده:
 
-```bash
-createdb petcare_booking
-```
+   ```bash
+   createdb petcare_booking
+   ```
 
-۵. اجرای مایگریشن‌ها:
+5. اجرای مایگریشن‌ها:
 
-```bash
-npm run migration:run
-```
+   ```bash
+   npm run migration:run
+   ```
 
-۶. راه‌اندازی سرور توسعه:
+6. راه‌اندازی سرور توسعه:
 
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
 
 ### توسعه
 - اجرای تست‌ها: `npm test`
